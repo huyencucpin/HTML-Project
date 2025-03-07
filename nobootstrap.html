@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase</title>
+    <style>
+        /* Container chính */
+        .project-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Phần chứa ảnh */
+        .project {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Nút More ở giữa ảnh */
+        .project-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .more-btn {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .more-btn:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        /* Mũi tên điều hướng */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            border-radius: 50%;
+        }
+
+        .prev:hover, .next:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="project-container">
+        <button class="prev">&#10094;</button>
+        <div class="project">
+            <img src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/802186ad-22c8-480d-a9b6-2786950f2678/NESTSPACEDESIGN-cover-1201.jpg?format=2500w" alt="Project Image">
+            <div class="project-info">
+                <button class="more-btn">IGNOTUS | More</button>
+            </div>
+        </div>
+        <button class="next">&#10095;</button>
+    </div>
+
+</body>
+</html>

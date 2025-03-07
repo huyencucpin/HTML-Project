@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Thanh điều hướng */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+
+        /* Các mục menu bên trái */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+        }
+
+        /* Logo ở giữa trang */
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Biểu tượng mạng xã hội bên phải */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Mục menu bên trái -->
+        <div class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Press</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Impression</a>
+        </div>
+
+        <!-- Logo chính giữa màn hình -->
+        <div class="logo">
+            <img src="logo.png" alt="Nest Space Logo"> 
+            NEST SPACE
+        </div>
+
+        <!-- Biểu tượng mạng xã hội bên phải -->
+        <div class="social-icons">
+            <a href="#">&#xf09a;</a> <!-- Facebook Icon -->
+            <a href="#">&#xf16d;</a> <!-- Instagram Icon -->
+        </div>
+    </nav>
+
+</body>
+</html>

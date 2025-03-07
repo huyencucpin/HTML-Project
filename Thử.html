@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NestSpace 巢空間室內設計</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+<!--CSS Style-->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        font-family: 'Times New Roman', Times, serif;
+        overflow-x: hidden
+    }
+
+    .menu-container,
+    .logo,
+    .social-media {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2vw 3vw;
+        max-width: 33%;
+    }
+
+    .menu-container,
+    .logo {
+        flex: 1 0 67%;
+        flex-wrap: nowrap;
+    }
+
+    .nav-bar {
+        display: flex;
+        position: fixed;
+        flex-flow: row nowrap;
+        font-weight: 400;
+        line-height: 1;
+        text-decoration-style: solid;
+        text-align: start;
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        align-items: center;
+        border: 1px solid;
+        border-left: none;
+        border-right: none;
+        z-index: 9999;
+        background: rgb(255, 255, 255);
+    }
+
+    .menu-container {
+        display: inline-flex;
+        position: static;
+        box-sizing: content-box;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-shrink: 1;
+        max-width: 33%;
+        order: 1;
+
+    }
+
+    .menu-container>div {
+        padding: 0.1em 0;
+        margin-right: 1.2vw;
+    }
+
+    .menu-container>div a {
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 400;
+        color: rgb(0, 0, 0);
+        font-family: 'Times New Roman', Times, serif;
+        font-size: calc((1.1 - 1)* 1.2vw + 1rem);
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        order: 2;
+    }
+
+    .logo img {
+        max-width: 100%;
+        width: auto;
+        max-height: 50px;
+    }
+
+    .social-media {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: flex-end;
+        order: 3;
+    }
+
+    .social-media img {
+        height: auto;
+        width: 20px;
+        position: relative;
+        margin-left: 1.2vw;
+    }
+
+    @media screen and (min-width: 768px),
+    screen and (max-width: calc(1907px)) and (orientation: landscape) {}
+
+    @media screen and (max-width: 991px) {
+        html {}
+    }
+
+    .carousel-inner {
+        display: grid;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        position: absolute
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #A8A6A1;
+        border-radius: 50%;
+        padding: 26px;
+        cursor: pointer;
+    }
+
+    .more-btn {
+        position: absolute;
+        border-radius: 25px;
+        text-decoration: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.6);
+        padding: 9.6px 16px;
+        width: 24vw;
+        border: 0px;
+    }
+
+    .more-btn a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: 500;
+        padding: 9px 16px;
+
+    }
+
+    .carasoul_slide {
+        min-height: 100vh;
+        display: grid;
+        width: 100%;
+        grid-template-areas: 1fr 1fr;
+        position: relative;
+        cursor: grab;
+    }
+
+    .content-wrapper {
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+    }
+
+    .content {
+        order: 2;
+    }
+
+    .project-item {
+        padding-top: calc(25vmax/5);
+    }
+
+    .projects-container {
+        display: grid;
+        width: 73%;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        margin: auto;
+    }
+
+    .img-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .content-item {
+        align-items: center;
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .seemore-btn {
+        text-decoration: none;
+        background-color: #A8A6A1;
+        cursor: pointer;
+        padding: 9.6px 16px;
+        align-items: center;
+        border: 0px;
+        border-radius: 0;
+        margin-top: 24px;
+        position: static;
+    }
+
+    .seemore-btn a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 500;
+        padding: 9px 16px;
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .view-all-projects {
+        display: block;
+        text-align: center;
+        padding-top: calc(25vmax/5);
+        padding-bottom: calc(25vmax/5);
+    }
+    .contact-container {
+        display: flex;
+        align-items: center;
+        height: 488.398px;
+        overflow: hidden;
+    }
+    .contact-img img{
+        position: relative;
+        object-fit: cover;
+        width: 100%;
+        object-position: 50% 68%;
+        display: block;
+    }
+    .content-new {
+        position: absolute;
+        display: block;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    .contact-btn {
+        padding: 10px 30px;
+        background: rgba(255, 255, 255, 0.6);
+        border: none;
+        border-radius: 50px;
+    }
+    .contact-btn a {
+        color: #000000;
+        text-decoration: none;
+    }
+    .contact-us {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-us-item {
+        display: inline-flex;
+    }
+    .contact-us-item > div a {
+        margin-right: 10px;
+        color: rgb(168, 166, 161);
+        margin-left: 1rem;
+        font-size: var(16px);
+        text-decoration-thickness: 1px;
+    }
+</style>
+
+<body>
+    <!--Navigation Bar-->
+    <nav class="nav-bar">
+        <!--Menu-->
+        <div class="menu-container">
+            <div><a href="https://www.nestspacedesign.com/about" target="_self">About</a></div>
+            <div><a href="https://www.nestspacedesign.com/contact" target="_self">Contact</a></div>
+            <div><a href="https://www.nestspacedesign.com/press" target="_self">Press</a></div>
+            <div><a href="https://www.nestspacedesign.com/portfolio" target="_self">Portfolio</a></div>
+            <div><a href="https://www.nestspacedesign.com/impression" target="_self">Impression</a></div>
+        </div>
+        <!--Logo-->
+        <div class="logo">
+            <a href="#"><img src="picture/coverGL02.png" alt="NestSpace 巢空間室內設計"></a>
+        </div>
+        <!--Social Media-->
+        <div class="social-media">
+            <a href="https://www.facebook.com/nestspace.design" target="_blank"><img
+                    src="picture/png-clipart-business-management-coworking-service-art-facebook-company-service.png"
+                    alt="Facebook"></a>
+            <a href="https://www.instagram.com/nestspacedesign/" target="_blank"><img src="picture/images.jpg"
+                    alt="Instagram"></a>
+        </div>
+    </nav>
+
+    <!--Highlight Projects-->
+    <div id="slide-container" class="carousel slide">
+        <!--Ảnh 1-->
+        <div class="carousel-inner">
+            <div class="carousel-item active"><img
+                    src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/802186ad-22c8-480d-a9b6-2786950f2678/NESTSPACEDESIGN-cover-1201.jpg?format=2500w"
+                    alt="Project Image" class="d-block w-100">
+                <button class="more-btn"><a href="https://www.nestspacedesign.com/portfolio/ignotus"
+                        target="_blank">IGNOTUS |
+                        More</a></button>
+            </div>
+            <!--Ảnh 2-->
+            <div class="carousel-item">
+                <img src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/687ce7ba-531d-44ec-b5c8-ef9eef1ba1a5/cover.jpg?format=2500w"
+                    alt="Project Image" class="d-block w-100">
+                <button class="more-btn"><a href="https://www.nestspacedesign.com/portfolio/transitions"
+                        target="_blank">Transitions
+                        | More</a></button>
+            </div>
+            <!--Ảnh 3-->
+            <div class="carousel-item">
+                <img src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/457a6747-ef35-4a64-8838-bd34a001b06e/NESTSPACEDESIGN-cover-0512.jpg?format=2500w"
+                    alt="Project Image" class="d-block w-100">
+                <button class="more-btn"><a href="https://www.nestspacedesign.com/portfolio/continuum"
+                        target="_blank">Continuum |
+                        More</a></button>
+            </div>
+            <!--Ảnh 4-->
+            <div class="carousel-item">
+                <img src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/1bb24c58-cc2a-4536-9892-a799647478ca/432Hz-NestSpaceDesign%E5%B7%A2%E7%A9%BA%E9%96%93_cover_02.jpg?format=2500w"
+                    alt="Project Image" class="d-block w-100">
+                <button class="more-btn"><a href="https://www.nestspacedesign.com/portfolio/432hz" target="_blank">432
+                        Hz |
+                        More</a></button>
+            </div>
+            <!--Ảnh 5-->
+            <div class="carousel-item">
+                <img src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/c70abddc-a319-43e7-85b0-ac9b51efad89/cover-10.jpg?format=2500w"
+                    alt="Project Image" class="d-block w-100">
+                <button class="more-btn"><a href="https://www.nestspacedesign.com/portfolio/duet-apartment"
+                        target="_blank">Duet
+                        Apartment | More</a></button>
+            </div>
+            <!--Ảnh 6-->
+            <div class="carousel-item">
+                <img src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/97def438-c4b7-448e-b861-53a3c14686c6/riversideabode-NestSpaceDesign%E5%B7%A2%E7%A9%BA%E9%96%93_portfolio_01-1.jpg?format=2500w"
+                    alt="Project Image" class="d-block w-100">
+                <button class="more-btn"><a href="https://www.nestspacedesign.com/portfolio/riverside-abode"
+                        target="_blank">Riverside
+                        Abode |
+                        More</a></button>
+            </div>
+
+            <!-- Nút chuyển slide -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#slide-container" data-bs-slide="prev"
+                style="left: 3vw;">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#slide-container" data-bs-slide="next"
+                style="right: 3vw;">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <!--Tầm nhìn và sứ mệnh-->
+        <div class="content-wrapper" style="padding-top: calc(25vmax/5); padding-bottom: calc(25vmax/5);">\
+            <div class="content" style="text-align:center;">
+                <h2>Crafting Soulful Spaces and Embrace Diversity</h2>
+                <p style="padding-top: calc(25vmax/10);">Life has no standard answer; the same is valid for spatial
+                    design. NestSpace Design, a Taipei-based
+                    interior studio, believes there are no fixed solutions in design. Instead, we are driven by a
+                    commitment
+                    to sustainability and a resolve to create unique architectural narratives with every renovation
+                    journey.
+                    We continuously push the boundaries of innovation to provide bespoke and beautiful outcomes that
+                    benefit
+                    our clients and the environment. Our approach goes beyond creating new places. To us, a passionate
+                    set
+                    is life itself, and a house with a soul is the true definition of home.</p>
+            </div>
+        </div>
+
+        <!--Selected Projects-->
+        <p style="font-style: italic; text-align: center; padding-bottom: calc(25vmax/5);">Selected Projects</p>
+        <div class="projects-container">
+            <!--Ảnh 1-->
+            <div class="content-item">
+                <h2>Eternity / 1 of 3</h2>
+                <span>Open the graceful scenery of the space</span>
+                <div><button class="seemore-btn"><a href="https://www.nestspacedesign.com/portfolio/eternity"
+                            target="_blank">See More</a></button></div>
+            </div>
+            <div class="img-item"><img
+                    src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/50d4e607-0296-44ce-812d-006c48a866f8/NestSpaceDesign_eternity-01.jpg?format=2500w"
+                    alt="Selected Project"></div>
+            <!--Ảnh 2-->
+            <div class="img-item"><img style="padding-top: 34px;"
+                    src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/cc11d19e-4b11-4475-9947-3e8155d259ae/NestSpaceDesign_revival-01.jpg?format=2500w"
+                    style="display: block;" alt="Selected Project"></div>
+            <div class="content-item">
+                <h2>Revival House / 2 of 3</h2>
+                <span>An unconventional dwelling dedicated to dancing</span>
+                <div><button class="seemore-btn"><a
+                            href="https://www.nestspacedesign.com/portfolio/revival-house-echo-of-the-body"
+                            target="_blank">See More</a></button></div>
+            </div>
+            <!--Ảnh 3-->
+            <div class="content-item">
+                <h2>Jardín del Sol / 3 of 3</h2>
+                <span>Combining the idea of a sun-filled greenhouse with the wfh conditions</span>
+                <div><button class="seemore-btn"><a href="https://www.nestspacedesign.com/portfolio/jardin-del-sol">See
+                            More</a></button></div>
+            </div>
+            <div class="img-item"><img style="padding-top: 34px;"
+                    src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/3b8f8143-064b-4ad0-8d39-40297e598764/NestSpaceDesign_jardin-01.jpg?format=2500w"
+                    alt="Selected Project"></div>
+        </div>
+    </div>
+
+    <!--View all projects-->
+    <div class="wrapper">
+        <div class="view-all-projects">
+            <h3><a href="https://www.nestspacedesign.com/portfolio" target="_parent" style="color: #A8A6A1;">View All
+                    Projects</a></h3>
+        </div>
+    </div>
+
+    <!--Slide-Contact us-->
+    <div class="contact-container">
+        <div class="contact-img">
+            <img
+                src="https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/f0d7ab57-4592-4a6e-ac70-6db37117f5b8/cover-0512-1.jpg?format=2500w">
+        </div>
+        <div class="content-new">
+        <h2 style="padding-bottom: 30px; color: #ffffff;">Tailoring a Next Space</h2>
+        <div><button class="contact-btn"><a href="" target="_self" style="padding-top: calc(25vmax/5);">Contact Us</a></button></div>
+        </div>
+    </div>
+    <!--Link Contact-->
+    <div class="contact-us" style="padding-top: calc(10vmax/5);">
+        <div class="contact-us-item">
+        <div><a href="https://www.nestspacedesign.com/about" target="_blank">About</a></div>
+        <div><a href="https://www.nestspacedesign.com/contact" target="_blank">Contact</a></div>
+        <div><a href="https://www.nestspacedesign.com/portfolio" target="_blank">Porfolio</a></div>
+        <div><a href="https://www.facebook.com/nestspace.design" target="_blank">Facebook</a></div>
+        <div><a href="https://www.instagram.com/nestspacedesign/" target="_blank">Instagram</a></div>
+        </div>
+    </div>
+    <!--Footer-->
+    <p style="text-align: center; margin-top: 1rem;" class="sqsrte-small">© NestSpace Design 2024</p>
+</body>
+
+</html>
