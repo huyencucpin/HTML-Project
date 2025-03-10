@@ -1,11 +1,49 @@
-.my-text {
-    font-size: 50px;
-    color: #ffffff;
-    font-style: italic;
+* {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
 }
-#my-tytle {
-    font-weight: bold;
+
+/* nav-bar start */
+.nav-bar {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
 }
-.text-bold {
-    font-weight: bold;
+.menu, .logo, .social-media {
+    width: 33%
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 17px;
+}
+
+ul.menu-list li a{
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.social-media {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
 }
