@@ -1,20 +1,24 @@
 * {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 /* nav-bar start */
 .nav-bar {
     display: flex;
-    position: relative;
+    position: fixed;
+    width: 100vw;
+    z-index: 9999;
+    background-color: #ffffff;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    height: 100px;
+    height: 105px;
     border-bottom: 1px solid;
     border-top: 1px solid;
+    padding: 20px 32px;
 }
-.menu, .logo, .social-media {
+.menu, .social-media {
     width: 33%
 }
 
@@ -24,6 +28,10 @@ ul {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 17px;
+}
+ul.menu-list {
+    margin: 0;
+    padding: 0;
 }
 
 ul.menu-list li a{
@@ -45,5 +53,50 @@ ul.menu-list li a{
 .social-media {
     display: flex;
     justify-content: flex-end;
-    margin-right: 60px;
+    margin-right: 20px;
+    align-items: center;
+}
+ul.social-media-list {
+    padding: 0;
+    margin: 0
+}
+/* nav-bar end */
+
+/* Slider start */
+.carousel-item img {
+    width: 100%; 
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Slider end */
+/* menu-mobile start*/
+@media only screen and (max-width: 800px) {
+.menu {
+    display: none
+}
+.m-line-item {
+    border-top: 1px solid;
+}
+.m-mobile {
+    display: block;
+}
+.m-mobile-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35px;
+    height: 35px;
+}
+.logo img {
+    height: 30px;
+    width: auto;
+}
+.logo {
+    width: 70%;
+}
+.social-media {
+    display: none;
+}
 }
