@@ -264,7 +264,7 @@ color: #A8A6A1;
 }
 /* Footer end */
 
-/* menu-mobile start*/
+/* Responsive start*/
 @media only screen and (max-width: 800px) {
 .menu {
     display: none
@@ -315,3 +315,4 @@ color: #A8A6A1;
         width: 90%;
     }
 }
+/* Responsive end */
