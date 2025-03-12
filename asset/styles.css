@@ -29,6 +29,7 @@ ul {
     flex-wrap: wrap;
     gap: 17px;
 }
+
 ul.menu-list {
     margin: 0;
     padding: 0;
@@ -69,8 +70,202 @@ ul.social-media-list {
     object-fit: cover;
     object-position: center;
 }
-
+.carousel-inner {
+    position: relative;
+}
+.more-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 25px;
+    padding: 10px 50px;
+    border: none;
+    opacity: 0.7;
+    transform: translate(-50%, -50%);
+}
+.more-btn a {
+    text-decoration: none;
+    color: black;
+}
 /* Slider end */
+
+/* Quote start */
+.quote {
+    width: 100vw;
+    padding: 56px 30px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+.quote-container {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+h2 {
+    font-weight: 200;
+
+}
+/* Quote end */
+
+/*Selected projects start */
+.project-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.project-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+.project-header {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.project-header p {
+    font-style: italic;
+    margin: 0;
+    padding: 0 34px;
+    white-space: nowrap;
+}
+.project-line {
+    border-top: 1px solid;
+    width: 100%;
+}
+
+.project-collection {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+.project-collection .project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.project-item {
+    justify-content: center;
+    align-items: center;
+}
+.project-collection .project-item .project-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.project-img {
+    position: relative;
+    width: 55%
+}
+.project-collection .project-item .project-img svg {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+}
+/* .project-img:hover svg {
+    opacity: 1;
+    pointer-events: auto;
+} */
+
+.project-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    justify-content: center;
+    align-items: center;
+}
+.see-more-btn {
+    border: none;
+    background-color: #A8A6A1;
+    padding: 10px 16px;
+    width: 40%;
+}
+.see-more-btn a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.row-reverse {
+    flex-direction: row-reverse;
+}
+.project-footer {
+    text-align: center;
+    padding-bottom: 45px;
+}
+.project-footer a{
+    color: #A8A6A1;
+    font-size: 23px;
+}
+/*Selected projects end */
+
+/* Slider-Contact start*/
+.slider-contact {
+    background-image: url("tailoring.jpg");
+    width: 100%;
+    height: 489px;
+    background-size: cover;
+    margin-bottom: 30px;
+    padding: 0;
+    background-position: 50% 68%;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+.title p {
+    font-size: 34px;
+    color: #ffffff;
+}
+.contact-btn {
+    background-color: #ffffff;
+    opacity: 0.7;
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: none;
+}
+.contact-btn a {
+    text-decoration: none;
+    color: black;
+}
+body {
+    overflow-x: hidden;
+}
+/* Slider-Contact end*/
+
+/* Footer start */
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+}
+.contact-footer-item {
+    margin: 0;
+    padding: 0;
+}
+.contact-footer-item li a{
+color: #A8A6A1;
+}
+.slogan p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+/* Footer end */
+
 /* menu-mobile start*/
 @media only screen and (max-width: 800px) {
 .menu {
