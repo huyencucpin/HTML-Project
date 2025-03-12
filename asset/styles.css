@@ -151,6 +151,7 @@ ul.social-media-list {
 .project-item {
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .project-collection .project-item .project-img img {
     display: block;
@@ -179,6 +180,7 @@ ul.social-media-list {
     gap: 13px;
     justify-content: center;
     align-items: center;
+    margin-left: 0
 }
 .see-more-btn {
     border: none;
@@ -280,14 +282,36 @@ color: #A8A6A1;
     width: 35px;
     height: 35px;
 }
+.logo {
+    width: 100%;
+}
+.social-media {
+    display: none;
+}
+}
+@media only screen and (max-width: 767px) {
 .logo img {
     height: 30px;
     width: auto;
 }
 .logo {
-    width: 70%;
+    width: 100%;
 }
-.social-media {
-    display: none;
 }
+@media only screen and (min-height: 1024px) {
+    .quote-container {
+        width: 100%;
+    }
+    .project-item {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+    .project-img {
+            position: relative;
+            width: 100%;
+    }
+    .project-container {
+        width: 90%;
+    }
 }
