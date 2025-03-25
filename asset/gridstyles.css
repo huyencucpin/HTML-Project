@@ -1,0 +1,126 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+    padding: 0;
+    margin: 0;
+}
+body {
+    overflow-x: hidden;
+}
+/* Nav Bar start */
+.nav-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 110px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    background-color: white;
+    z-index: 999;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+ul.menu-list li a {
+    color: black;
+}
+ul.menu-list {
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto auto;
+    justify-self: left;
+    grid-template-rows: 100%;
+    gap: 12px;
+    margin: 0;
+    padding-left: 36px;
+}
+.logo-container img {
+    height: 50px;
+}
+.social-media-list {
+    justify-self: right;
+    padding-right: 36px;
+}
+ul.social-media-list {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    justify-self: right;
+    grid-template-rows: 100%;
+    gap: 14px;
+    margin: 0;
+}
+.social-media-container {
+    display: grid;
+    padding-right: 20px;
+}
+/* Nav Bar end */
+
+/* Slider start */
+.carousel.slide {
+    display: grid;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+}
+
+.carousel-item {
+    height: 100vh;
+}
+.d-block.w-100 {
+    object-fit: cover;
+    object-position: center center;
+    min-height: 100vh;
+}
+.carousel-inner {
+    position: relative;
+}
+.more-btn {
+    border: none;
+    padding: 10px 38px;
+    border-radius: 25px;
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -51%);
+    opacity: 0.7;
+}
+
+.more-btn a{
+    color: black;
+}
+/* Slider end */
+
+/* Quote start */
+.quote.container {
+    display: grid;
+    place-items: center;
+    padding-top: 65px;
+    padding-bottom: 65px;
+    gap: 20px;
+}
+.col-6 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.col-6 p {
+    line-height: 1.5;
+}
+/* Quote end */
+
+/* Projects start */
+.row {
+
+}
+.project-item {
+    
+}
+/* Projects end */

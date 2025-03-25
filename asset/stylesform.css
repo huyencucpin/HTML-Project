@@ -1,0 +1,39 @@
+.form-group {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.sign-up {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 30px;
+}
+.wrapper {
+    position: relative;
+}
+.form-group h2 {
+    border-bottom: 1px solid #8e8d89;
+    padding-bottom: 4px;
+    text-shadow: 1px 2px 1px #ffffff5c;
+}
+body {
+    background-image: url("NESTSPACEDESIGN-cover-1.jpg");
+    background-size: cover;
+}
+.sign-up-button {
+    background-color:rgba(82, 161, 70, 0.904);
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0;
+    border: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.line {
+    border: 0.5px solid #8e8d89;
+}
+.note {
+    text-align: center;
+    text-shadow: 0.5px 0.5px 0.5px #b1b1b18e;
+}

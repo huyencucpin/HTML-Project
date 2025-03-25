@@ -49,19 +49,118 @@ ul.menu-list li a{
 .logo img {
     height: 50px;
     width: auto;
+    left: -30%;
+    transform: translate(30%);
 }
-
 .social-media {
     display: flex;
     justify-content: flex-end;
-    margin-right: 20px;
+    margin-right: 30px;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 ul.social-media-list {
     padding: 0;
-    margin: 0
+    margin: 0;
 }
+
+.allsignform {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.allsignform button {
+    border: none;
+    background-color: #ffffff;
+    color: #7f7f7f;
+    white-space: nowrap;
+}
+/* .sign-up {
+    display: none;
+    z-index: 1000;
+} */
+
 /* nav-bar end */
+
+/* Sign-up-form start */
+#signupform {
+    display: none;
+}
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url(NESTSPACEDESIGN-cover-5.jpg);
+    background-size: cover;
+    top: 0%;
+    background-position: 50%;
+}
+.wrapper::before {
+    background: rgba(255, 255, 255, 0.3); /* Màu trắng mờ */
+    backdrop-filter: blur(8px); /* Làm mờ */
+}
+.sign-up {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.form-group {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.form-group h2 {
+    border-bottom: 1px solid #A8A6A1;
+    padding-bottom: 4px;
+    padding-top: 50px;
+    text-shadow: #000000 1.5px 1.5px 1.5px;
+    color: #d8c46d;
+}
+.line {
+    border-bottom: 1px solid #A8A6A1;
+}
+.sign {
+    border: none;
+    background-color: #4cc63efc;
+    color: #ffffff;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-weight: 500;
+}
+.close {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    /* position: absolute; */
+}
+.close button {
+    border: 0.5px solid;
+    background-color: #c19f07e2;
+    color: #ffffff;
+    border-radius: 50%;
+    padding: 0;
+    width: 26.5px;
+    height: 26.5px;
+}
+/* Sign-up-form end */
+
+/* Sign-in-form start */
+#signinform {
+    display: none;
+}
+.sign-in {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.in-button {
+    background-color: rgb(45, 151, 217);
+}
+
+/* Sign-in-form end */
 
 /* Slider start */
 .carousel-item img {
@@ -286,6 +385,9 @@ color: #A8A6A1;
     width: 100%;
 }
 .social-media {
+    display: none;
+}
+.allsignform {
     display: none;
 }
 }
