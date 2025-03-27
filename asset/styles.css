@@ -96,15 +96,16 @@ ul.social-media-list {
     top: 0%;
     background-position: 50%;
 }
-.wrapper::before {
-    background: rgba(255, 255, 255, 0.3); /* Màu trắng mờ */
-    backdrop-filter: blur(8px); /* Làm mờ */
-}
 .sign-up {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: rgba(255,255,255,0.6);
+    /* box-shadow: 0px 0px 2px 2px rgba(255,255,255); */
+    width: 350px;
+    height: 480px;
+    padding-left: 45px;
 }
 .form-group {
     display: inline-flex;
@@ -114,9 +115,9 @@ ul.social-media-list {
 .form-group h2 {
     border-bottom: 1px solid #A8A6A1;
     padding-bottom: 4px;
-    padding-top: 50px;
-    text-shadow: #000000 1.5px 1.5px 1.5px;
-    color: #d8c46d;
+    /* padding-top: 50px; */
+    text-shadow: #2b2000 1.5px 1.5px 1.5px;
+    color: #fae277;
 }
 .line {
     border-bottom: 1px solid #A8A6A1;
@@ -155,11 +156,25 @@ ul.social-media-list {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: rgba(255,255,255,0.6);
+    width: 320px;
+    height: 400px;
+    padding-left: 45px;
 }
 .in-button {
     background-color: rgb(45, 151, 217);
 }
-
+#signinnotice {
+    text-align: center;
+    color: red;
+    margin-top: 20px;
+    width: 230px;
+}
+#welcomeusername {
+    margin-left: 25px;
+    font-style: italic;
+    color: #7f7f7f;
+}
 /* Sign-in-form end */
 
 /* Slider start */
