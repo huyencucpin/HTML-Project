@@ -1,154 +1,177 @@
+const signupform = document.getElementById('signupform');
+const userLocal = JSON.parse(localStorage.getItem('user')) || [];
+
 function showForm(formId) {
-    document.getElementById("signupform").style.display = "none";
-    document.getElementById("signinform").style.display = "none";
-    document.getElementById(formId).style.display = 'block';
-    document.getElementById("home").style.display = "none"; 
-    document.getElementById("result").style.display = "none"; 
+    let signupForm = document.getElementById("signupform");
+    let signinForm = document.getElementById("signinform");
+    let homeSection = document.getElementById("home");
+
+    if (formId !== "signupform") signupForm.style.display = "none";
+    if (formId !== "signinform") signinForm.style.display = "none";
+    if (formId !== "home") homeSection.style.display = "none";
+    document.getElementById(formId).style.display = "block";
 }
 
-function closeForm(formId) {
-    document.getElementById(formId).style.display = "none";
-    document.getElementById("home").style.display = "block"; 
-}
+let username = document.getElementById('signupusername').value;
+let password = document.getElementById('signuppassword').value;
+let cfpassword = document.getElementById('cfpassword').value;
+let email = document.getElementById('signupemail').value;
 
-function isValidEmail(signupemail) {
+//Kiểm tra email đúng định dạng hay không => Đưa ra thông báo
+function isValidEmail(email) {
     let signupemailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return signupemailPattern.test(signupemail); 
+    return signupemailPattern.test(email);
 }
+
 function kiemTraEmail() {
-    let email = document.getElementById("signupemail").value;
-    let result = document.getElementById("result");
+    let email = document.getElementById('signupemail').value;
+    let result = document.getElementById('result');
     if (!isValidEmail(email)) {
-        result.innerHTML = "❌ Email không hợp lệ!";
+        result.innerHTML = "❌ Email không hợp lệ";
         result.style.color = "red";
-        document.getElementById("result").style.display = "block";
-        submitbutton.disabled = true;
+        document.getElementById('result').style.display = 'block';
     }
     else {
-        document.getElementById("result").style.display = "none";
+        document.getElementById('result').style.display = 'none';
     }
 }
 
-function kiemTraPassword(){
-    let password = document.getElementById("signuppassword").value;
-    let cfpassword = document.getElementById("cfpassword").value;
-    let pass = document.getElementById("pass");
-
-    if (password !== cfpassword) {
-    document.getElementById("pass").style.display = "block";
-    pass.innerHTML = "Mật khẩu không trùng khớp";
-    pass.style.color = "red";
-    return;
-    }
-    else {
-        document.getElementById("pass").style.display = "none";
-    }
-}
-
-function kiemTraCheckbox() {
-    let checkbox = document.getElementById("confirm");
-    let submitbutton = document.getElementById("submitbutton");
-    let notice = document.getElementById('notice')
-
-    document.getElementById("notice").style.display = "block";
-    submitbutton.disabled = !checkbox.checked;
-    if (submitbutton.disabled) {
-    notice.innerHTML = "❌ Vui lòng điền thông tin hợp lệ!";
-    notice.style.color = "red";
-    return;
-    }
-}
-
-function register() {
-    let email = document.getElementById("signupemail").value;
-    let username = document.getElementById("signupusername").value;
-    let password = document.getElementById("signuppassword").value;
-    let cfpassword = document.getElementById("cfpassword").value;
-    let notice = document.getElementById("notice");
-    let submitbutton = document.getElementById("submitbutton");
-
-    if (!username || !password || !cfpassword || !email) {
-        notice.innerHTML = "Vui lòng nhập đầy đủ thông tin";
-        notice.style.color = "red";
-        submitbutton.disabled = "true";
-        return;
-    }
-    else {
-        notice.innerHTML = "";
-    }
-
-    // if (email == user.email, username == user.username) {
-    //     alert("Bạn đã có tài khoản? Đăng nhập ngay")
-    //     showForm("signinform");
-    //     document.getElementById("signinusername").value = username;
-    // }
-    // else {
-    let user = {email: email, username: username, password: password}
-    localStorage.setItem("user", JSON.stringify(user));
-    alert("Đăng ký thành công");
-    showForm("signinform");
-    document.getElementById('signinform').style.display = 'block';
-    document.getElementById("signinusername").value = username;
-}
-
-function login() {
-    let username = document.getElementById('signinusername').value;
-    let password = document.getElementById('signinpassword').value;
-    let signinbutton = document.getElementById('signinbutton');
-    let user = JSON.parse(localStorage.getItem("user"));
-
-    if (!username || !password) {
-        signinnotice.innerHTML = "Điền đầy đủ thông tin đăng nhập";
-    }
-    else {
-        signinnotice.innerHTML = "";
-    }
-
-    if (!user) {
-        signinnotice.innerHTML = "⚠ Chưa có tài khoản. Vui lòng đăng ký!";
-        return;
-    }
-
-    if (username !== user.username || password !== user.password) {
-        signinnotice.innerHTML = "Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại";
-        signinbutton.disabled = true;
-    }
-
-    localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("loggedInUser", user.username);
-    alert(`Đăng nhập thành công! Chào mừng ${user.username}`);
-    
-    window.location.href = "HTML-Project/index.html";
-}
-
+// Chuyển hướng form khi ấn "login here" & "signup now"
 document.addEventListener("DOMContentLoaded", function () {
-    let isLoggedIn = localStorage.getItem("isLoggedIn");
-    let username = localStorage.getItem("loggedInUser");
-    // localStorage.setItem("isLoggedIn", "true");
-    // localStorage.setItem("loggedInUser",username);
+    let loginHereBtn = document.getElementById("loginhere");
 
-    if (isLoggedIn === "true" && username) {
-        document.getElementById("signout").style.display = 'block';
-        document.getElementById("signuptext").style.display = 'none';
-        document.getElementById("signintext").style.display = 'none';
-        document.getElementById("welcomeusername").style.display = 'block';
-        welcomeusername.innerHTML = `Chào mừng, ${username}!`;
-    }
-    else {
-        document.getElementById("signout").style.display = 'none';
-        document.getElementById("signuptext").style.display = 'block';
-        document.getElementById("signintext").style.display = 'block';
-        document.getElementById("signinform").style.display = 'none';  // Quan trọng!
-        document.getElementById("signupform").style.display = 'none';
+    if (loginHereBtn) {
+        loginHereBtn.addEventListener("click", function () {
+            showForm("signinform");
+        });
     }
 });
 
-function logout() {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("loggedInUser");
+document.addEventListener("DOMContentLoaded", function () {
+    let signupNowBtn = document.getElementById("signupnow");
 
-    alert("Bạn đã đăng xuất!");
-    
-    window.location.replace("D:/code/HTML/HTML-Project/index.html");
+    if (signupNowBtn) {
+        signupNowBtn.addEventListener("click", function () {
+            showForm("signupform");
+        });
+    }
+});
+
+// Ngăn việc ấn enter là reload lại trang
+document.getElementById("signinform").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+    }
+});
+
+function register(event) {
+    event.preventDefault();
+    let username = document.getElementById('signupusername').value;
+    let password = document.getElementById('signuppassword').value;
+    let cfpassword = document.getElementById('cfpassword').value;
+    let email = document.getElementById('signupemail').value;
+    let notice = document.getElementById('notice');
+    let checkbox = document.getElementById('confirm');
+
+    let userLocal = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Kiểm tra checkbox
+    if (!checkbox || !checkbox.checked) {
+        notice.style.display = 'block';
+        notice.innerHTML = "❌ Vui lòng xác nhận điều khoản!";
+        notice.style.color = 'red';
+        return;
+    }
+
+    // Kiểm tra nhập đầy đủ thông tin
+    if (!username || !password || !cfpassword || !email) {
+        notice.style.display = 'block';
+        notice.innerHTML = "❌ Vui lòng nhập đầy đủ thông tin!";
+        notice.style.color = 'red';
+        return;
+    }
+
+    // Kiểm tra mật khẩu khớp nhau
+    if (password !== cfpassword) {
+        notice.style.display = 'block';
+        notice.innerHTML = "❌ Mật khẩu không khớp!";
+        notice.style.color = 'red';
+        return;
+    }
+
+    // Kiểm tra email đã tồn tại chưa
+    let emailExist = userLocal.some((user) => user.email === email);
+    if (emailExist) {
+        alert('Email đã được đăng ký. Vui lòng đăng nhập');
+        setTimeout(() => {
+            showForm("signinform");
+        }, 100);
+        return;
+    }
+
+    // Lưu user mới
+    let user = { username, password, email };
+    userLocal.push(user);
+    localStorage.setItem("users", JSON.stringify(userLocal));
+
+    alert('Đăng ký thành công. Đăng nhập ngay!');
+    setTimeout(() => {
+        showForm("signinform");
+        document.getElementById("signinusername").value = username;
+    }, 100);
 }
 
+
+// Phần đăng nhập
+function login(event) {
+    event.preventDefault();
+    let signinusername = document.getElementById('signinusername').value;
+    let signinpassword = document.getElementById('signinpassword').value;
+    let signinnotice = document.getElementById('signinnotice');
+    let welcomeMessage = document.getElementById('welcomeMessage');
+
+    // Validate dữ liệu đầu vào 
+
+    if (!signinusername || !signinpassword) {
+        document.getElementById('signinnotice').style.display = 'block';
+        signinnotice.innerHTML = "Vui lòng điền đầy đủ thông tin!";
+        signinnotice.style.color = 'red';
+        return;
+    }
+    // Lấy dữ liệu từ local về
+    let userLocal = JSON.parse(localStorage.getItem('users')) || [];
+    // Tìm kiếm tên đăng nhập + mật khẩu đã có trên local hay chưa?/ Hoặc so khớp dữ liệu có được không?
+    let findUser = userLocal.find((users) => users.username == signinusername && users.password == signinpassword)   
+    console.log(findUser);
+    // Nếu có => Thông báo đăng nhập thành công và chuyển hướng về trang chủ + (Bỏ nút sign in - sign up => Thay bằng sign out + Chào mừng ${username})
+    if(findUser) {
+        alert('Đăng nhập thành công!');
+        localStorage.setItem("loggedInUser", JSON.stringify(findUser));
+        window.location.href = 'signout.html';
+
+    }
+    // Nếu tên đăng nhập hoặc mật khẩu không trùng khớp => Notice Sai tên đăng nhập hoặc mật khẩu
+    else {
+        document.getElementById('signinnotice').style.display = 'block';
+        signinnotice.innerHTML = 'Sai tên đăng nhập hoặc mật khẩu';
+        return;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    let welcomeMessage = document.getElementById("welcomeMessage");
+    let signOutBtn = document.getElementById("signout");
+
+    if (loggedInUser) {
+        welcomeMessage.innerText = `Chào mừng, ${loggedInUser.username}!`;
+        document.getElementById("welcomeMessage").style.color ='grey';
+        document.getElementById("welcomeMessage").style.fontStyle = 'italic';
+        signOutBtn.style.display = "block";
+    }
+});
+
+document.getElementById("signout").addEventListener("click", function () {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "index.html";
+});

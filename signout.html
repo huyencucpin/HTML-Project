@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <div class="logo"><a href="index.html">
+        <div class="logo"><a href="#">
                 <img src="picture/coverGL02.png" alt="Logo">
             </a>
         </div>
@@ -68,9 +68,8 @@
         </div>
 
         <div id="allform" class="allsignform">
-            <button id="signuptext" onclick="showForm('signupform')">Sign up</button>
-            <button id="signintext" onclick="showForm('signinform')">Sign in</button>
-            <button id="signout" onclick="logout()" style="display: none;">Sign out</button>
+            <button id="signout" onclick="logout()">Sign out</button>
+            <p id="welcomeMessage">Chào mừng</p>
         </div>
         <p class="welcome" id="welcomeusername" style="display: none;"></p>
        </div>
@@ -101,11 +100,11 @@
                     </div>
                     <button type="submit" onclick="register(event)" class="sign up-button" id="submitbutton">SIGN UP</button>
                     <div class="line"></div>
-                    <div class="note" style="text-align: center;">Already a member? <button id="loginhere" type="button"
-                            onclick="login(e)"
+                    <div class="note" style="text-align: center;">Already a member? <button
+                            onclick="closeForm('signupform'); showForm('signinform')"
                             style="border: none; background-color: #ffffff00; font-style: italic; color:rgb(3, 78, 216)">Login
                             here</button></div>
-                    <p id="notice" style="display: none; text-align: center;"></p>
+                    <p id="notice" style="display: none;"></p>
                 </div>
             </div>
         </div>
@@ -130,8 +129,8 @@
                             Remember me</label></div>
                     <button onclick="login(event)" type="submit" class="sign in-button" id="signinbutton">SIGN IN</button>
                     <div class="line"></div>
-                    <div class="note" style="text-align: center;">Not a member?<button id="signupnow"
-                            onclick="signup(e)" type="button"
+                    <div class="note" style="text-align: center;">Not a member?<button
+                            onclick="closeForm('signinform'); showForm('signupform')"
                             style="color: rgb(56, 160, 67);border: none; background-color: #ffffff00;font-style: italic;">Signup
                             now</button></div>
                 </div>
